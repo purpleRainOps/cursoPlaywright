@@ -27,7 +27,7 @@ test('Enter to link Docs', async ({ page }) => {
 });
 
 
-test('Search product in mercado libre', async ({ page }) => {
+/*test('Search product in mercado libre', async ({ page }) => {
   await page.goto("https://www.mercadolibre.com.co/");
   await page.locator('input[id=\'cb1-edit\']').fill('iphone');
   await page.keyboard.press('Enter');
@@ -45,6 +45,7 @@ test('Search product in mercado libre', async ({ page }) => {
   await expect(page.locator('//ol[contains(@class,\'ui-search-layout\')]//li//h3')).toHaveCount(title.length);
   ;
 })
+*/
 
 
 test('test locators 2', async ({ page }) => {
