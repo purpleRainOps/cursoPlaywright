@@ -33,7 +33,7 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    headless:true,
+    headless:false,
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
@@ -45,8 +45,21 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name:"setup",
+      testMatch:/.*\.setup\.ts/,
+    },
+
+    {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'],
+
+        contextOptions:{
+          permissions:['clipboard-read','clipboard-write'],
+          storageState:"playwright/.auth/user.json" 
+        }
+
+      },
+      //dependencies:["setup"]
     },
 
     /*{
